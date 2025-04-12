@@ -36,7 +36,7 @@ A fully functional Gmail clone built using **Vue 3**, **Firebase**, and **Tailwi
 ### Backend / Services
 - **Firebase Auth** – Google OAuth 2.0
 - **Firestore** – Real-time database for emails
-- **Node.js** – Used for backend
+- **Node.js / Express.js** – Used for backend
 
 ### DevOps & Deployment
 - **Docker** – Multi-stage Vue build with NGINX
