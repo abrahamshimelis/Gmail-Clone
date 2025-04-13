@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+import NavbarComponent from "../components/NavbarComponent.vue";
+</script>
 <template>
-    <h1>Home View</h1>
+  <div class="h-screen">
+    <NavbarComponent />
+  </div>
 </template>

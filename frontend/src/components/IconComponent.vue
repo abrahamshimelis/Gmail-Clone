@@ -1,24 +1,3 @@
-<template>
-  <div id="IconComponent" v-if="icon">
-    <div
-      class="flex items-center justify-center rounded-full cursor-pointer w-10 h-10"
-      :class="[hoverColor]"
-      :data-tooltip-target="`tooltip-no-arrow-${iconString}`"
-      data-tooltip-placement="bottom"
-    >
-      <component :is="icon" :size="iconSize" :fillColor="iconColor" />
-    </div>
-
-    <div
-      :id="`tooltip-no-arrow-${iconString}`"
-      role="tooltip"
-      class="inline-block absolute invisible text-xs z-10 py-1 px-2 font-medium text-white rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-600 delay-150"
-    >
-      {{ text }}
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from "vue";
 import type { Component } from "vue";
@@ -44,7 +23,8 @@ interface Props {
 // Default values
 const props = withDefaults(defineProps<Props>(), {
   iconSize: 24,
-  iconColor: "#000000",
+  iconColor: "#636363",
+  hoverColor: "hover:bg-gray-200"
 });
 
 // icon resolution
@@ -72,3 +52,24 @@ const icon = computed<Component | null>(() => {
   }
 });
 </script>
+
+<template>
+  <div id="IconComponent" v-if="icon">
+    <div
+      class="flex items-center justify-center rounded-full cursor-pointer w-10 h-10"
+      :class="[hoverColor]"
+      :data-tooltip-target="`tooltip-no-arrow-${iconString}`"
+      data-tooltip-placement="bottom"
+    >
+      <component :is="icon" :size="iconSize" :fillColor="iconColor" />
+    </div>
+
+    <div
+      :id="`tooltip-no-arrow-${iconString}`"
+      role="tooltip"
+      class="inline-block absolute invisible text-xs z-10 py-1 px-2 font-medium text-white rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-600 delay-150"
+    >
+      {{ text }}
+    </div>
+  </div>
+</template>
